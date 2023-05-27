@@ -5,7 +5,7 @@ f = Faker()
 import random, conf, json
 
 
-def dict_gen(n=1) -> dict:
+def dict_gen(n: int = 1) -> dict:
     """
     Функция генерирует случайные словари по одному
     :param n:
@@ -27,7 +27,7 @@ def dict_gen(n=1) -> dict:
         n += 1
 
 
-def main(n=100):
+def main(n: int = 100):
     """
     Функция создает список случайных словарей и записывает в json - файл.
     передаваемый параметр 'n' - количество словарей в списке
@@ -36,9 +36,9 @@ def main(n=100):
     """
     dat = dict_gen()
     libra = [next(dat) for _ in range(n)]
-    with open('new.json', 'w') as n:
+    with open('new.json', 'w', encoding="utf-8") as n:
         json.dump(libra, n, indent=4, ensure_ascii=False)
 
 
 if __name__ == '__main__':
-    main()
+    main(20)
